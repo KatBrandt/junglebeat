@@ -41,6 +41,11 @@ describe LinkedList do
 
       expect(list.head.next_node).to eq node_2
       expect(list.head.next_node.data).to eq "deep"
+
+      node_3 = list.append("dum")
+
+      expect(list.head.next_node).to eq node_2
+      expect(list.head.next_node.next_node).to eq node_3
     end
   end
 
