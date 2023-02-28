@@ -25,5 +25,13 @@ describe Node do
 
       expect(node.next_node).to be nil
     end
+
+    it "can add another node" do
+      node1 = Node.new("plop")
+      node2 = Node.new("doop")
+      node1.next_node = node2 
+
+      expect(node1.next_node).to eq node2
+    end
   end
 end
