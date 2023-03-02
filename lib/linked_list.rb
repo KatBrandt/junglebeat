@@ -23,6 +23,21 @@ class LinkedList
     end
   end
 
+  def insert(position, data)
+    preceding_node = get_previous_node(position)
+    new_next_node = preceding_node.next_node
+    new_node = preceding_node.next_node = Node.new(data)
+    new_node.next_node = new_next_node
+  end
+
+  def get_previous_node(position)
+    previous_node = @head 
+    (position - 1).times do 
+      previous_node = previous_node.next_node
+    end
+    previous_node
+  end
+
   def get_last_node
     last_node = @head
     until last_node.next_node.nil?

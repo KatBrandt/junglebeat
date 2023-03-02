@@ -74,4 +74,31 @@ describe LinkedList do
       expect(list.to_string).to eq "doop deep"
     end
   end
+
+  describe "#prepend" do
+    it "adds new node to begining of list" do 
+      list = LinkedList.new 
+      node_1 = list.prepend("doop")
+
+      expect(list.to_string).to eq "doop"
+
+      node_2 = list.prepend("plop")
+
+      expect(list.to_string).to eq "plop doop"
+    end
+  end
+
+  describe "#insert" do
+    it "inserts new node at given position" do
+      list = LinkedList.new 
+      node_1 = list.append("doop")
+      node_2 = list.append("deep")
+      node_3 = list.insert(1, "suu")
+
+      expect(list.to_string).to eq "doop suu deep"
+
+      node_4 = list.insert(2, "plop")
+      expect(list.to_string).to eq "doop suu plop deep"
+    end
+  end
 end
