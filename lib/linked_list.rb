@@ -22,23 +22,29 @@ class LinkedList
     get_last_node(new_node)
   end
 
-  def count 
-    counter = 0
-    current_node = @head
-    while current_node do
-      counter += 1 
-      current_node = current_node.next_node
-    end
-    counter
+  def count
+    return 0 if @head.nil?
+    count_from_head(@head)
   end
 
-  def to_string 
-    string = ""
-    current_node = @head 
-    while current_node do 
-      string << current_node.data + " "
-      current_node = current_node.next_node 
+  def count_from_head(node)
+    if node.next_node.nil?
+      return 1
     end
-    string.strip
+
+    total = 1 + count_from_head(node.next_node)
+    total
+  end
+
+  def to_string
+    string_from_head(@head)
+  end 
+
+  def string_from_head(node)
+   if node.next_node.nil?
+    return node.data
+   end
+   
+   data_string = node.data + " " + string_from_head(node.next_node)
   end
 end
