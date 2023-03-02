@@ -9,16 +9,17 @@ class LinkedList
     if @head.nil?
       @head = Node.new(data) 
     else
-      get_last_node.next_node = Node.new(data)
+      get_last_node(@head).next_node = Node.new(data)
     end
   end
 
-  def get_last_node
-    last_node = @head
-    until last_node.next_node.nil?
-      last_node = last_node.next_node
+  def get_last_node(node)
+    if node.next_node.nil?
+      return node
     end
-    last_node
+
+    new_node = node.next_node
+    get_last_node(new_node)
   end
 
   def count 
