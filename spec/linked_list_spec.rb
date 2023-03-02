@@ -101,4 +101,20 @@ describe LinkedList do
       expect(list.to_string).to eq "doop suu plop deep"
     end
   end
+
+  describe "#find" do
+    it "finds the Node at given position" do 
+      list = LinkedList.new 
+      node_1 = list.append("doop")
+      node_2 = list.append("deep")
+      node_3 = list.append("suu")
+      node_4 = list.insert(2, "plop")
+
+      found_nodes = list.find(2,1)
+      expect(found_nodes).to eq "suu"
+      
+      found_nodes_2 = list.find(1,3)
+      expect(found_nodes_2).to eq "deep suu plop"
+    end
+  end
 end

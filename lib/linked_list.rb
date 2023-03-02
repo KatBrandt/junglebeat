@@ -39,11 +39,16 @@ class LinkedList
   end
 
   def get_last_node
-    last_node = @head
-    until last_node.next_node.nil?
-      last_node = last_node.next_node
-    end
-    last_node
+    # last_node = @head
+    # until last_node.next_node.nil?
+    #   last_node = last_node.next_node
+    # end
+    # last_node
+
+    get_previous_node(count)
+  end
+
+  def find(position, amount)
   end
 
   def count 
