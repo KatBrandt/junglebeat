@@ -13,6 +13,16 @@ class LinkedList
     end
   end
 
+  def prepend(data)
+    if @head.nil?
+      @head = Node.new(data)
+    else
+      old_head = @head
+      @head = Node.new(data)
+      @head.next_node = old_head
+    end
+  end
+
   def get_last_node
     last_node = @head
     until last_node.next_node.nil?
