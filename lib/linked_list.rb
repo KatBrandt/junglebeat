@@ -14,13 +14,10 @@ class LinkedList
   end
 
   def prepend(data)
-    if @head.nil?
-      @head = Node.new(data)
-    else
-      old_head = @head
-      @head = Node.new(data)
-      @head.next_node = old_head
-    end
+    new_node = Node.new(data)
+    return @head = new_node if !@head
+    new_node.next_node = @head
+    @head = new_node
   end
 
   def insert(position, data)
