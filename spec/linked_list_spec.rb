@@ -108,7 +108,7 @@ describe LinkedList do
       node_1 = list.append("doop")
       node_2 = list.append("deep")
       node_3 = list.append("suu")
-      node_4 = list.insert(2, "plop")
+      node_4 = list.append("plop")
 
       found_nodes = list.find(2,1)
       expect(found_nodes).to eq "suu"

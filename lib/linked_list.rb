@@ -49,6 +49,13 @@ class LinkedList
   end
 
   def find(position, amount)
+    final_string = ""
+    starting_node = get_previous_node(position + 1)
+    amount.times do 
+      final_string << starting_node.data + " "
+      starting_node = starting_node.next_node
+    end
+    final_string.strip
   end
 
   def count 
