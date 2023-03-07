@@ -84,4 +84,17 @@ class LinkedList
     next_to_last_node.next_node = nil 
     old_last_node.data
   end
+
+  def includes?(word)
+    data_check = false
+    current_node = @head
+    while current_node do
+      if current_node.data == word
+        data_check = true 
+        break
+      end
+      current_node = current_node.next_node
+    end
+    data_check
+  end
 end

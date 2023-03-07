@@ -133,4 +133,17 @@ describe LinkedList do
       expect(list.to_string).to eq "doop deep suu"
     end
   end
+
+  describe "#includes?" do
+    it "checks data for given string" do
+      list = LinkedList.new 
+      node_1 = list.append("doop")
+      node_2 = list.append("deep")
+      node_3 = list.append("suu")
+      node_4 = list.append("ploop")
+
+      expect(list.includes?("deep")).to be true
+      expect(list.includes?("dep")).to be false
+    end
+  end
 end
