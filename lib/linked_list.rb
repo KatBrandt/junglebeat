@@ -77,4 +77,11 @@ class LinkedList
     end
     string.strip
   end
+
+  def pop
+    next_to_last_node = get_previous_node(count - 1)
+    old_last_node = next_to_last_node.next_node
+    next_to_last_node.next_node = nil 
+    old_last_node.data
+  end
 end

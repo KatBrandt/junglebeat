@@ -117,4 +117,20 @@ describe LinkedList do
       expect(found_nodes_2).to eq "deep suu plop"
     end
   end
+
+  describe "#pop" do
+    it "removes last Node and returns its data" do
+      list = LinkedList.new 
+      node_1 = list.append("doop")
+      node_2 = list.append("deep")
+      node_3 = list.append("suu")
+      node_4 = list.append("plop")
+      node_5 = list.append("shi")
+
+      expect(list.to_string).to eq "doop deep suu plop shi"
+      expect(list.pop).to eq "shi"
+      expect(list.pop).to eq "plop"
+      expect(list.to_string).to eq "doop deep suu"
+    end
+  end
 end
