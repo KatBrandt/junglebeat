@@ -18,6 +18,25 @@ describe JungleBeat do
     expect(jb.list.head).to be nil
   end
 
+  it "starts with default voice and rate" do
+    jb = JungleBeat.new
+
+    expect(jb.rate).to eq 500
+    expect(jb.voice).to eq "Boing"
+  end
+
+  it "can set and reset the rate" do
+    jb = JungleBeat.new
+
+    jb.set_rate!(300)
+
+    expect(jb.rate).to eq 300
+
+    jb.reset_rate!
+
+    expect(jb.rate).to eq 500
+  end
+
   it "can create one node per data string" do
     jb = JungleBeat.new
 

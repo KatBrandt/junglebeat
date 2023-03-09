@@ -1,8 +1,10 @@
 class JungleBeat
-  attr_reader :list 
+  attr_reader :list, :rate, :voice
 
   def initialize
     @list = LinkedList.new
+    @rate = 500
+    @voice = "Boing"
     @valid_beats = %w(tee dee deep ditt bop boop la na shu doo woo hoo)
   end
 
@@ -15,9 +17,17 @@ class JungleBeat
     end
   end
 
+  def set_rate!(new_rate)
+    @rate = new_rate
+  end
+
+  def reset_rate!
+    @rate = 500
+  end
+
   def play
     beats = @list.to_string
-    `say -r 500 #{beats}`
+    `say -r #{@rate} #{beats}`
   end
 
   def all
