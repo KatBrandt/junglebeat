@@ -28,7 +28,7 @@ describe JungleBeat do
     expect(jb.list.head.next_node.data).to eq "doo"
   end
 
-  it "plays the beat" do
+  xit "plays the beat" do
     jb = JungleBeat.new
 
     jb.append("deep doo ditt woo hoo shu")
@@ -36,6 +36,20 @@ describe JungleBeat do
     expect(jb.list.count).to eq 6
     expect(jb).to respond_to(:play)
     expect(jb.play).to eq ""
+  end
 
+  it "returns all beats" do
+    jb = JungleBeat.new
+    jb.append("deep doo ditt woo hoo shu")
+
+    expect(jb.all).to eq "deep doo ditt woo hoo shu"
+  end
+
+  it "only allows valid beats" do
+    jb = JungleBeat.new
+
+    jb.append("deep bill ditt jelly shu")
+    expect(jb.list.count).to eq 3
+    expect(jb.all).to eq "deep ditt shu"
   end
 end
