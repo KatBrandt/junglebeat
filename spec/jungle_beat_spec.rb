@@ -27,4 +27,15 @@ describe JungleBeat do
     expect(jb.list.head.data).to eq "deep"
     expect(jb.list.head.next_node.data).to eq "doo"
   end
+
+  it "plays the beat" do
+    jb = JungleBeat.new
+
+    jb.append("deep doo ditt woo hoo shu")
+
+    expect(jb.list.count).to eq 6
+    expect(jb).to respond_to(:play)
+    expect(jb.play).to eq ""
+
+  end
 end
